@@ -4,10 +4,10 @@ import SuggestionDropdown from './SuggestionDropdown';
 
 const AutoComplete = () => {
   return (
-    <div>
+    <>
       <CountryInput />
       <SuggestionDropdown />
-    </div>
+    </>
   );
 }
 
