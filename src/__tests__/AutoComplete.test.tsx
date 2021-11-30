@@ -1,9 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from '../App';
+import AutoComplete from '../components/AutoComplete';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders the CountryInput Component and the SuggestionDropdown Component', () => {
+  render(<AutoComplete />);
+  const input = screen.getByLabelText('country-input');
+  const suggestionDropdown = screen.getByLabelText('suggestion-dropdown');
+  expect(input).toBeInTheDocument();
+  expect(suggestionDropdown).toBeInTheDocument();
 });

@@ -1,9 +1,9 @@
 import React from 'react'
 
+
+
 export default function CountryInput() {
   return (
-    <div>
-      TODO
-    </div>
+    <input type="text" placeholder="Search" aria-label="country-input"/>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from '../App';
+import SuggestionDropdown from '../components/SuggestionDropdown';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders the dropdown', () => {
+  render(<SuggestionDropdown />);
+  const suggestionDropdown = screen.getByLabelText('suggestion-dropdown');
+  expect(suggestionDropdown).toBeInTheDocument();
 });
