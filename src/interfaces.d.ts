@@ -13,3 +13,5 @@ export interface MappedCountryData {
 export interface SuggestionDropdownProps {
   countryData: MappedCountryData[];
 }
+
+export type MappedCountryDataKey = "name";

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import CountryInput from './CountryInput';
 import SuggestionDropdown from './SuggestionDropdown';
 import { CountryClient as fetchCountries } from '../api/CountryClient';
-import { parseCountryApiResponse } from '../helpers';
+import { parseCountryApiResponse, sortAlphabetically } from '../helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllCountries } from '../redux-toolkit/MainSlice';
 import { RootState } from '../redux-toolkit/store';
@@ -30,7 +30,8 @@ const AutoComplete = () => {
   useEffect(() => {
     if(apiResponse?.data) {
       const countryData = parseCountryApiResponse(apiResponse.data);
-      dispatch(setAllCountries(countryData));
+      let sortedCountryData = [...countryData].sort(sortAlphabetically("name"));
+      dispatch(setAllCountries(sortedCountryData));
       console.log('data sent to redux...'); // TODO: this is logging twice
     }
   }, [apiResponse, dispatch]);

@@ -4,8 +4,7 @@ Here's my attempt
 
 ## Notes on my implementation (before starting)
 
-- Used Create React App
--How to create a dropdown WITH a text input?
+- How to create a dropdown WITH a text input?
   - SuggestionsList Component
   - Input Component
   - Combine as AutoComplete component?
