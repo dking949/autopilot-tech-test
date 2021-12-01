@@ -2,10 +2,14 @@ export interface CountryApiResponseData {
   name: {
     common: string,
   },
-  flag: any, // TODO: emoji type???
+  flag: string,
 }
 
 export interface MappedCountryData {
   name: string,
-  flag: any, // TODO: emoji type?
+  flag: string,
+}
+
+export interface SuggestionDropdownProps {
+  countryData: MappedCountryData[];
 }

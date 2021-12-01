@@ -9,22 +9,28 @@ import { MappedCountryData } from '../interfaces';
 
 interface SliceState {
   allCountries: MappedCountryData[];
+  isDropdownVisible: boolean,
 }
 
 export const MainSlice = createSlice({
   name: 'MainSlice',
   initialState: {
     allCountries: [],
+    isDropdownVisible: false,
   } as SliceState,
   reducers: {
     setAllCountries: (state, action) => {
       state.allCountries = action.payload;
+    },
+    setIsDropDownVisible: (state, action) => {
+      state.isDropdownVisible = action.payload;
     },
   },
 });
 
 export const {
   setAllCountries,
+  setIsDropDownVisible,
 } = MainSlice.actions;
 
 export default MainSlice.reducer;
