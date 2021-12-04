@@ -17,5 +17,12 @@ Here's my attempt
     - I don’t think this option possible with provided API
 - Keep most of logic in AutoComplete so that other 2 components can be pure functions
 
+## Notes on actual implementation
+I know you were probably looking for how I would handle the performance of the API. Maybe something along the lines of fetching only some of the data first and then lazy loading the rest of it was needed. The country API didn't have an option to load a partial list so I just fetched them all once at the start. Would be happy to talk over how I **would** implement it in an interview if i get one :)
 
 ## Features I didn't have time to complete
+- If a country is already selected in the input, auto scroll to that country in the dropdown when the dropdown is open again
+- Displaying the Flag AND the name in the input after user has performed a selection, currently have just the name
+- Styling Edge cases: Long Country Names
+- Navigating the dropdown with keyboard. Not sure if this was actually a requirement but didn't have time to implement anyways
+- Some validation on user input

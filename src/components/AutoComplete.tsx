@@ -27,7 +27,6 @@ const AutoComplete = () => {
   // Fetch the countries from the API on initial load
   useEffect(() => {
     refetch();
-    console.log('fetching data...');
   }, []);
 
   // When the data variable changes, (we get data), parse data from response
@@ -37,7 +36,6 @@ const AutoComplete = () => {
       let sortedCountryData = [...countryData].sort(sortAlphabetically("name"));
       dispatch(setAllCountries(sortedCountryData));
       dispatch(setSuggestions(sortedCountryData));
-      console.log('data sent to redux...'); // TODO: this is logging twice
     }
   }, [apiResponse, dispatch]);
 

@@ -1,6 +1,12 @@
 import { CountryApiResponseData, MappedCountryData, MappedCountryDataKey } from "./interfaces";
 
-export const parseCountryApiResponse = (responseData: CountryApiResponseData[]): MappedCountryData[] => { //TODO Declare interface
+/**
+ * Parse the apiResponse and extract the data needed and return it
+ *
+ * @param responseData The response data from the API
+ * @returns {mappedCountryData} mappedCountryData
+ */
+export const parseCountryApiResponse = (responseData: CountryApiResponseData[]): MappedCountryData[] => {
   const mappedCountryData = responseData.map((country) => {
     return {
       name: country.name.common,

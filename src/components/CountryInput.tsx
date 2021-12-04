@@ -1,6 +1,6 @@
 import React from 'react'
 import { CountryInputProps } from '../interfaces';
-import { CountryInputStyled, InputChevronStyled } from './styled';
+import { CountryInputStyled, InputChevronStyled, InputContainerStyled } from './styled';
 
 export default function CountryInput({
   onChange,
@@ -8,7 +8,7 @@ export default function CountryInput({
   onFocus,
 }: CountryInputProps) {
   return (
-    <div>
+    <InputContainerStyled>
       <CountryInputStyled type="text"
         placeholder="Search"
         aria-label="country-input"
@@ -17,6 +17,6 @@ export default function CountryInput({
         onFocus={onFocus}
         />
       <InputChevronStyled aria-label="dropdown-chevron" onClick={onFocus} />
-    </div>
+    </InputContainerStyled>
   )
 }
