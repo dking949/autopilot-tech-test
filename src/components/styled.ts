@@ -23,6 +23,7 @@ export const DropdownListItemStyled = styled.li`
   gap: 20px;
   cursor: pointer;
   padding: 0px 10px 0px 10px;
+  text-align: left;
 
   :hover {
     background-color: beige;
@@ -30,10 +31,15 @@ export const DropdownListItemStyled = styled.li`
 `;
 
 export const CountryInputStyled = styled.input`
+  display: block;
   border-radius: 3px;
-  width: 192px;
+  width: 174px;
   height: 36px;
   position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 20px;
 `;
 
 export const AutoCompleteStyled = styled.div`
