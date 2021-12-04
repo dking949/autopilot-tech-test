@@ -8,7 +8,7 @@ Here's my attempt
   - SuggestionsList Component
   - Input Component
   - Combine as AutoComplete component?
--li component should be conditionally rendered if user has focused input
+- li component should be conditionally rendered if user has focused input
 - Fetch countries from API once and save in Redux store? (Need to extract name & flag from response)
 - On input change, search the list and assign to new ‘matchingCountries’ array in redux store
 - “Performance of the dropdown by using load more”
@@ -17,3 +17,5 @@ Here's my attempt
     - I don’t think this option possible with provided API
 - Keep most of logic in AutoComplete so that other 2 components can be pure functions
 
+
+## Features I didn't have time to complete

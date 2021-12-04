@@ -5,14 +5,13 @@ import { DropdownListStyled } from './styled'
 
 export default function SuggestionDropdown({
   countryData,
+  onListItemClick,
 }: SuggestionDropdownProps) {
   return (
-    <div aria-label="suggestion-dropdown">
-      <DropdownListStyled>
-        {countryData.map((country)=> {
-          return (<DropdownListItem countryName={country.name} countryFlag={country.flag} />)
-        })}
+      <DropdownListStyled aria-label="suggestion-dropdown-ul">
+        {countryData.map((country, idx)=> {
+          return (<DropdownListItem key={idx} countryIdx={idx} countryName={country.name} countryFlag={country.flag} onClick={onListItemClick}/>)
+        })} 
       </DropdownListStyled>
-    </div>
   )
 }

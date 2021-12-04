@@ -10,6 +10,9 @@ import { MappedCountryData } from '../interfaces';
 interface SliceState {
   allCountries: MappedCountryData[];
   isDropdownVisible: boolean,
+  userInput: any,
+  suggestions: MappedCountryData[];
+  userSelection?: MappedCountryData;
 }
 
 export const MainSlice = createSlice({
@@ -17,6 +20,8 @@ export const MainSlice = createSlice({
   initialState: {
     allCountries: [],
     isDropdownVisible: false,
+    userInput: '',
+    suggestions: [],
   } as SliceState,
   reducers: {
     setAllCountries: (state, action) => {
@@ -25,12 +30,24 @@ export const MainSlice = createSlice({
     setIsDropDownVisible: (state, action) => {
       state.isDropdownVisible = action.payload;
     },
+    setUserInput: (state, action) => {
+      state.userInput = action.payload;
+    },
+    setSuggestions: (state, action) => {
+      state.suggestions = action.payload;
+    },
+    setUserSelection: (state, action) => {
+      state.userSelection = action.payload;
+    },
   },
 });
 
 export const {
   setAllCountries,
   setIsDropDownVisible,
+  setUserInput,
+  setSuggestions,
+  setUserSelection,
 } = MainSlice.actions;
 
 export default MainSlice.reducer;

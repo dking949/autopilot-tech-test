@@ -1,19 +1,17 @@
 import React from 'react'
+import { DropdownListItemProps } from '../interfaces'
 import { DropdownListItemStyled } from './styled'
-
-interface DropdownListItemProps {
-  countryName: string
-  countryFlag: any, // TODO: emoji type
-}
 
 export default function DropdownListItem({
   countryName,
   countryFlag,
+  onClick,
+  countryIdx,
 }: DropdownListItemProps) {
   return (
-    <DropdownListItemStyled aria-label="country-list-item">
-        <span>{countryName}</span>
-        <span>{countryFlag}</span>
+    <DropdownListItemStyled data-country-index={countryIdx} aria-label="country-list-item" onClick={onClick}>
+      <span aria-label="country-flag-span">{countryFlag}</span>
+      <span aria-label="country-name-span">{countryName}</span>
     </DropdownListItemStyled>
   )
 }

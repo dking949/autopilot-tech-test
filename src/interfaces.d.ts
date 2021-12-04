@@ -12,6 +12,21 @@ export interface MappedCountryData {
 
 export interface SuggestionDropdownProps {
   countryData: MappedCountryData[];
+  onListItemClick: (x: any) => void,
 }
 
 export type MappedCountryDataKey = "name";
+
+
+export interface CountryInputProps {
+  onChange: (e: any) => void,
+  userInput: string,
+  onFocus: () => void,
+}
+
+export interface DropdownListItemProps {
+  countryName: string
+  countryFlag: string,
+  onClick: (x: any) => void,
+  countryIdx: number,
+};
