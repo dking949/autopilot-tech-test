@@ -1,7 +1,5 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from '../App';
-import CountryInput from '../components/CountryInput';
 import DropdownListItem from '../components/DropdownListItem';
 
 const dummyLiProps = {
