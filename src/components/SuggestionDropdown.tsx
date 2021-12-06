@@ -7,11 +7,19 @@ export default function SuggestionDropdown({
   countryData,
   onListItemClick,
 }: SuggestionDropdownProps) {
+
+  const renderDropdown = () => {
+    if (countryData.length > 0) {
+      return countryData.map((country, idx)=> {
+        return (<DropdownListItem key={idx} countryIdx={idx} countryName={country.name} countryFlag={country.flag} onClick={onListItemClick}/>)
+      });
+    }
+    return null;
+  }
+
   return (
       <DropdownListStyled aria-label="suggestion-dropdown-ul">
-        {countryData.map((country, idx)=> {
-          return (<DropdownListItem key={idx} countryIdx={idx} countryName={country.name} countryFlag={country.flag} onClick={onListItemClick}/>)
-        })} 
+        {renderDropdown()}
       </DropdownListStyled>
   )
 }

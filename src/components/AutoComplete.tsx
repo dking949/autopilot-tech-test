@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import CountryInput from './CountryInput';
 import SuggestionDropdown from './SuggestionDropdown';
-import { CountryClient as fetchCountries } from '../api/CountryClient';
 import { parseCountryApiResponse, sortAlphabetically } from '../helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllCountries, setIsDropDownVisible, setSuggestions, setUserInput, setUserSelection } from '../redux-toolkit/MainSlice';
 import { RootState } from '../redux-toolkit/store';
 import { MappedCountryData } from '../interfaces';
 import { AutoCompleteStyled } from './styled';
+import axios from 'axios';
 
 const AutoComplete = () => {
 
@@ -21,23 +21,18 @@ const AutoComplete = () => {
   } = useSelector((state: RootState) => state.countries)
 
   // API
-  const { data: apiResponse, refetch } = fetchCountries();
-
+  const fetchData = async () => {
+    const res = await axios.get('https://restcountries.com/v3.1/all');
+    const countryData = parseCountryApiResponse(res.data);
+    let sortedCountryData = [...countryData].sort(sortAlphabetically("name"));
+    dispatch(setAllCountries(sortedCountryData));
+    dispatch(setSuggestions(sortedCountryData));
+  }
 
   // Fetch the countries from the API on initial load
   useEffect(() => {
-    refetch();
+    fetchData();
   }, []);
-
-  // When the data variable changes, (we get data), parse data from response
-  useEffect(() => {
-    if(apiResponse?.data) {
-      const countryData = parseCountryApiResponse(apiResponse.data);
-      let sortedCountryData = [...countryData].sort(sortAlphabetically("name"));
-      dispatch(setAllCountries(sortedCountryData));
-      dispatch(setSuggestions(sortedCountryData));
-    }
-  }, [apiResponse, dispatch]);
 
   const inputOnChange = (e: any) => {
     // NOTE: If had time, I would perform validation on the input
@@ -72,11 +67,10 @@ const AutoComplete = () => {
   }
 
   return (
-    allCountries.length > 0 ? (
     <AutoCompleteStyled>
       <CountryInput onChange={inputOnChange} userInput={userInput} onFocus={onFocusHandler} />
-      {isDropdownVisible &&<SuggestionDropdown countryData={suggestions} onListItemClick={onListItemClick}/>}
-    </AutoCompleteStyled>): null
+      {isDropdownVisible && <SuggestionDropdown countryData={suggestions} onListItemClick={onListItemClick}/>}
+    </AutoCompleteStyled>
   );
 }
 

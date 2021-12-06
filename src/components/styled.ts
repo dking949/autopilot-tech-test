@@ -61,3 +61,11 @@ export const InputContainerStyled = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const LoadingDivStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+`;
