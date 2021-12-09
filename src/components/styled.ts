@@ -33,13 +33,13 @@ export const DropdownListItemStyled = styled.li`
 export const CountryInputStyled = styled.input`
   display: block;
   border-radius: 3px;
-  width: 174px;
+  width: 155px;
   height: 36px;
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-right: 20px;
+  padding-left: 40px;
 `;
 
 export const AutoCompleteStyled = styled.div`
@@ -62,10 +62,8 @@ export const InputContainerStyled = styled.div`
   align-items: center;
 `;
 
-export const LoadingDivStyled = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-`;
+export const InputCountryFlagStyled = styled.span`
+  position: absolute;
+  z-index: 1;
+  left: 10px;
+`

@@ -13,6 +13,7 @@ interface SliceState {
   userInput: any,
   suggestions: MappedCountryData[];
   userSelection?: MappedCountryData;
+  selectedCountryFlag?: string,
 }
 
 export const MainSlice = createSlice({
@@ -39,6 +40,9 @@ export const MainSlice = createSlice({
     setUserSelection: (state, action) => {
       state.userSelection = action.payload;
     },
+    setSelectedCountryFlag: (state, action) => {
+      state.selectedCountryFlag = action.payload;
+    }
   },
 });
 
@@ -48,6 +52,7 @@ export const {
   setUserInput,
   setSuggestions,
   setUserSelection,
+  setSelectedCountryFlag,
 } = MainSlice.actions;
 
 export default MainSlice.reducer;

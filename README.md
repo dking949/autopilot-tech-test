@@ -26,6 +26,5 @@ I didn't have access to Sketch when doing this challenge so I hop you won't puni
 
 ## Features I didn't have time to complete
 - If a country is already selected in the input, auto scroll to that country in the dropdown when the dropdown is open again
-- Displaying the Flag AND the name in the input after user has performed a selection, currently have just the name
 - Navigating the dropdown with keyboard. Not sure if this was actually a requirement but didn't have time to implement anyways
 - Some validation on user input

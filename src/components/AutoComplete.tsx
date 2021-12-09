@@ -3,7 +3,7 @@ import CountryInput from './CountryInput';
 import SuggestionDropdown from './SuggestionDropdown';
 import { parseCountryApiResponse, sortAlphabetically } from '../helpers';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAllCountries, setIsDropDownVisible, setSuggestions, setUserInput, setUserSelection } from '../redux-toolkit/MainSlice';
+import { setAllCountries, setIsDropDownVisible, setSelectedCountryFlag, setSuggestions, setUserInput, setUserSelection } from '../redux-toolkit/MainSlice';
 import { RootState } from '../redux-toolkit/store';
 import { MappedCountryData } from '../interfaces';
 import { AutoCompleteStyled } from './styled';
@@ -18,6 +18,7 @@ const AutoComplete = () => {
     isDropdownVisible,
     userInput,
     suggestions,
+    selectedCountryFlag,
   } = useSelector((state: RootState) => state.countries)
 
   // API
@@ -63,12 +64,13 @@ const AutoComplete = () => {
     const selection = suggestions[countryIndex];
     dispatch(setUserSelection(selection));
     dispatch(setUserInput(selection.name))
+    dispatch(setSelectedCountryFlag(selection.flag))
     dispatch(setIsDropDownVisible(false));
   }
 
   return (
     <AutoCompleteStyled>
-      <CountryInput onChange={inputOnChange} userInput={userInput} onFocus={onFocusHandler} />
+      <CountryInput onChange={inputOnChange} userInput={userInput} onFocus={onFocusHandler} selectedCountryFlag={selectedCountryFlag}/>
       {isDropdownVisible && <SuggestionDropdown countryData={suggestions} onListItemClick={onListItemClick}/>}
     </AutoCompleteStyled>
   );

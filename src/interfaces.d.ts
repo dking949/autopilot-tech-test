@@ -22,6 +22,7 @@ export interface CountryInputProps {
   onChange: (e: any) => void,
   userInput: string,
   onFocus: () => void,
+  selectedCountryFlag?: string,
 }
 
 export interface DropdownListItemProps {
