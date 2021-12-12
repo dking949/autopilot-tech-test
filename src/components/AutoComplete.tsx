@@ -72,6 +72,7 @@ const AutoComplete = () => {
     dispatch(setUserInput(selection.name))
     dispatch(setSelectedCountryFlag(selection.flag))
     dispatch(setIsDropDownVisible(false));
+    document.getElementById('country-input')?.blur();
   }
 
   const onBlurHandler = () => {
