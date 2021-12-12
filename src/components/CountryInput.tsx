@@ -11,14 +11,18 @@ export default function CountryInput({
   return (
     <InputContainerStyled>
       <InputCountryFlagStyled>{selectedCountryFlag}</InputCountryFlagStyled>
-      <CountryInputStyled type="text"
+      <CountryInputStyled 
+        id="country-input"
+        type="text"
         placeholder="Search"
         aria-label="country-input"
         onChange={onChange}
         value={userInput}
         onFocus={onFocus}
         />
-      <InputChevronStyled aria-label="dropdown-chevron" onClick={onFocus} />
+      <InputChevronStyled aria-label="dropdown-chevron" onClick={() => {
+        document.getElementById('country-input')?.focus();
+      }}/>
     </InputContainerStyled>
   )
 }

@@ -51,12 +51,18 @@ const AutoComplete = () => {
       return country.name.toLowerCase().indexOf(userInputText.toLowerCase()) > -1;
     });
 
+    if (!isDropdownVisible) {
+      dispatch(setIsDropDownVisible(true));
+    }
     dispatch(setUserInput(userInputText));
+    dispatch(setSelectedCountryFlag(''));
     dispatch(setSuggestions(newSuggestions));
   };
 
   const onFocusHandler = () => {
-    dispatch(setIsDropDownVisible(true));
+    if (!isDropdownVisible) {
+      dispatch(setIsDropDownVisible(true));
+    }
   }
 
   const onListItemClick = (click: any) => {
@@ -68,9 +74,13 @@ const AutoComplete = () => {
     dispatch(setIsDropDownVisible(false));
   }
 
+  const onBlurHandler = () => {
+    dispatch(setIsDropDownVisible(false));
+  }
+
   return (
-    <AutoCompleteStyled>
-      <CountryInput onChange={inputOnChange} userInput={userInput} onFocus={onFocusHandler} selectedCountryFlag={selectedCountryFlag}/>
+    <AutoCompleteStyled onBlur={onBlurHandler}>
+      <CountryInput onChange={inputOnChange} userInput={userInput} onFocus={onFocusHandler} selectedCountryFlag={selectedCountryFlag} />
       {isDropdownVisible && <SuggestionDropdown countryData={suggestions} onListItemClick={onListItemClick}/>}
     </AutoCompleteStyled>
   );

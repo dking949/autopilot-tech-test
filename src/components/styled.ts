@@ -33,13 +33,13 @@ export const DropdownListItemStyled = styled.li`
 export const CountryInputStyled = styled.input`
   display: block;
   border-radius: 3px;
-  width: 155px;
+  width: 126px;
   height: 36px;
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-left: 40px;
+  padding: 0px 30px 0px 40px;
 `;
 
 export const AutoCompleteStyled = styled.div`
@@ -48,6 +48,7 @@ export const AutoCompleteStyled = styled.div`
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+  border-radius: 3px;
 `;
 
 export const InputChevronStyled = styled(ExpandMoreIcon)`
